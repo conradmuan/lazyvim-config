@@ -1,3 +1,7 @@
+local enable = true
+if not enable then
+  return {}
+end
 return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
@@ -8,9 +12,9 @@ return {
     cmd = { "CopilotChat", "CopilotChatToggle" },
     keys = {
       {
-        "<leader>cc",
+        "<leader>ct",
         function()
-          require("CopilotChat").toggle()
+          require("CopilotChat").open()
         end,
         desc = "Toggle Copilot Chat",
         mode = { "n", "v" },
@@ -18,9 +22,9 @@ return {
       {
         "<leader>cp",
         function()
-          require("CopilotChat.integrations.telescope").pick()
+          require("CopilotChat").select_prompt()
         end,
-        desc = "Copilot Chat (Telescope prompt)",
+        desc = "Copilot Chat",
         mode = { "n", "v" },
       },
     },
